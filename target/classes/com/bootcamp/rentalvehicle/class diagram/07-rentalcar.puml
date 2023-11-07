@@ -1,0 +1,61 @@
+@startuml 01-solution7
+
+abstract Vehicle{
+    -vehicleType : String
+    -year : String
+    -price : double
+    -tax : double
+    -seat : int
+    -totalIncome : double
+    +findIncomeByVehicle(List<Vehicle) vehicle,vehicleType):double
+    +saveVehicle() : void
+}
+
+interface RentOrder {
+    +totalIncome() : double
+    +addTransaction(Income income):void
+}
+
+class Car extends Vehicle{
+    noPolice : String
+}
+
+class SUV extends Car implements RentOrder {
+    -travel : String
+
+}
+
+class Taxi extends Car {
+    -VIP : string
+}
+
+class AirCraft extends Vehicle implements RentOrder{
+    noRegister : String
+    orderPerHours : double
+}
+
+class PrivateJet extends AirCraft {
+    maxLuggage : float
+}
+
+class Helicopter extends AirCraft {
+    maxRange : float
+}
+
+class Income {
+    -vehicle : Vehicle
+    -transactionDate : LocalDate
+}
+
+class IncomeTaxi extends Income implements RentOrder{
+    -order :int
+    -orderPerKm : double
+}
+
+class IncomeSUV extends Income implements RentOrder{
+    -rent : double
+    -driver : double
+}
+
+
+@enduml
