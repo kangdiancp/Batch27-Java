@@ -1,5 +1,29 @@
 @startuml 01-solution7
 
+
+class Main{
+    +main() : void
+}
+
+Main -- ISummary
+
+interface ISummary{
+    +getTotalIncomeCar() : double
+    +getTotalIncomePlane():double
+    +getTotalCar() : int
+    +getTotalAirPlane() : int
+    +findIncomeByVehicle(List<Vehicle) vehicle,vehicleType):double
+    +saveVehicle() : void
+}
+
+class SummaryImpl implements ISummary{
+
+}
+
+class SummaryDBImpl implements ISummary{
+
+}
+
 abstract Vehicle{
     -vehicleType : String
     -year : String
